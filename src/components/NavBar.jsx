@@ -9,7 +9,7 @@ export default function NavBar() {
   return (
     <nav className="flex items-center gap-4 font-poppins">
       <AiOutlineMenu
-        className="ml-4 text-2xl text-lightGrey"
+        className="ml-4 text-2xl text-lightGrey hover:cursor-pointer"
         onClick={() => setShowMenu(!showMenu)}
       />
 
@@ -27,7 +27,7 @@ export default function NavBar() {
                   type="text"
                   name="searchMain"
                   id="searchMain"
-                  className="bg-inherit placeholder:text-lightGrey outline-none"
+                  className="bg-inherit placeholder:text-lightGrey outline-none w-full text-lightGrey"
                   placeholder="Search for anything..."
                 />
               </div>

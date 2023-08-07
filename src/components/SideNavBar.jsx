@@ -14,7 +14,7 @@ export default function SideNavBar() {
     <AnimatePresence>
       {showMenu && (
         <motion.div
-          className="absolute z-10 top-0 left-0 bg-navy w-full h-full px-5 py-2 flex flex-col items-start gap-5 font-poppins overflow-scroll xsm:w-8/12 lg:w-6/12"
+          className="fixed z-10 top-0 left-0 bg-navy w-full h-full px-5 py-2 flex flex-col items-start gap-5 font-poppins overflow-scroll xsm:w-8/12 lg:w-6/12 xl:w-3/12"
           initial={{ x: -1000, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
@@ -22,20 +22,20 @@ export default function SideNavBar() {
         >
           <div className="w-full flex justify-end">
             <AiOutlineClose
-              className="text-2xl text-lightGrey mt-2"
+              className="text-2xl text-lightGrey mt-2 hover:cursor-pointer"
               onClick={() => setShowMenu(!showMenu)}
             />
           </div>
           {/*SEARCH FORM*/}
           <div className="w-full">
             <form className="w-full">
-              <div className="w-full flex items-center gap-3 p-1 rounded bg-darkGrey h-12">
+              <div className="w-full flex items-center gap-3 p-1 rounded bg-darkGrey h-12 text-lightGrey">
                 <BsSearch className="text-2xl text-lightGrey ml-2" />
                 <input
                   type="text"
                   name="searchSide"
                   id="searchSide"
-                  className="bg-inherit placeholder:text-lightGrey outline-none"
+                  className="bg-inherit placeholder:text-lightGrey outline-none w-full"
                   placeholder="Search for anything..."
                 />
               </div>

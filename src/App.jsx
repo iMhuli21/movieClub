@@ -10,12 +10,12 @@ const App = () => {
   return (
     <NavProvider>
       <GenreProvider>
-        <div className="relative bg-navy w-screen h-screen">
+        <div className="relative bg-navy w-full h-full">
           <NavBar />
           <SideNavBar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/details" element={<Details />} />
+            <Route path="/details/:id" element={<Details />} />
           </Routes>
         </div>
       </GenreProvider>
