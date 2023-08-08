@@ -1,14 +1,25 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { navContext } from "../context/NavProvider";
 import { genreContext } from "../context/GenreProvider";
 import { AiOutlineClose } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router";
 import Genre from "./Genre";
 
 export default function SideNavBar() {
   const [showMenu, setShowMenu] = useContext(navContext);
   const { genres } = useContext(genreContext);
+  const [userSearch, setUserSearch] = useState("");
+  const navigate = useNavigate();
+  
+  const searchForMovie = (e)=> {
+    e.preventDefault();
+
+    setShowMenu(!showMenu);
+    navigate(`/search/${userSearch}`);
+    setUserSearch("");
+  }
 
   return (
     <AnimatePresence>
@@ -27,8 +38,8 @@ export default function SideNavBar() {
             />
           </div>
           {/*SEARCH FORM*/}
-          <div className="w-full">
-            <form className="w-full">
+          <div className="w-full md:hidden">
+            <form className="w-full" onSubmit={searchForMovie}>
               <div className="w-full flex items-center gap-3 p-1 rounded bg-darkGrey h-12 text-lightGrey">
                 <BsSearch className="text-2xl text-lightGrey ml-2" />
                 <input
@@ -37,6 +48,8 @@ export default function SideNavBar() {
                   id="searchSide"
                   className="bg-inherit placeholder:text-lightGrey outline-none w-full"
                   placeholder="Search for anything..."
+                  value={userSearch}
+                  onChange={(e)=> setUserSearch(e.target.value)}
                 />
               </div>
             </form>

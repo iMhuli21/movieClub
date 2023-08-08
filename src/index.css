@@ -11,14 +11,6 @@
 }
 
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
-  background: #212529;
+ display: none;
 }
-::-webkit-scrollbar-thumb {
-  background-color: #808080;
-  border-radius: 16px;
-}
-::-webkit-scrollbar-corner {
-  display: none;
-}
+

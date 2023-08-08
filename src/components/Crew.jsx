@@ -24,7 +24,7 @@ export default function Crew({ movieId }) {
   useEffect(() => {
     getCrew();
     
-  }, [director]);
+  }, [movieId]);
   return (
     director.length !== 0 && (
         <span className="text-darkGrey">{director[0].name}</span>
